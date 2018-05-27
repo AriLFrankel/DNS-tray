@@ -1,0 +1,22 @@
+{
+  "name": "dns-tray",
+  "version": "1.0.0",
+  "description": "manage dns server settings from your tray",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=icon.icns --prune=true --out=release-builds --electron-version=2.0.2",
+    "build-dmg": "electron-installer-dmg ./release-builds/dns-tray-darwin-x64/dns-tray.app dns-tray --overwrite"
+  },
+  "keywords": [
+    "dns"
+  ],
+  "author": "ari frankel <ari.l.frankel@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "electron-prebuilt-compile": "^2.0.2",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.12.0"
+  }
+}

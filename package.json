@@ -6,7 +6,10 @@
   "scripts": {
     "start": "electron .",
     "build": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=icon.icns --prune=true --out=release-builds --electron-version=2.0.2",
-    "build-dmg": "electron-installer-dmg ./release-builds/dns-tray-darwin-x64/dns-tray.app dns-tray --overwrite"
+    "build-dmg": "electron-installer-dmg ./release-builds/dns-tray-darwin-x64/dns-tray.app dns-tray --overwrite",
+    "cleanup": "rm -f dns-tray.dmg && hdiutil unmount /Volumes/dns-tray/",
+    "uninstall": "rm -rf /Applications/dns-tray.app/ && yarn cleanup",
+    "quick-install": "yarn build && yarn build-dmg && hdiutil mount dns-tray.dmg && cp -R /Volumes/dns-tray/dns-tray.app /Applications && yarn cleanup"
   },
   "keywords": [
     "dns"
